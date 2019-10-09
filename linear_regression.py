@@ -22,9 +22,10 @@ class LinearRegression:
         ____________
         X: array_like, shape = [n_samples, n_features]
         y: array_like, shape = [n_samples, ]
-		
+
 		Returns
 		____________
+
 		self.cost_: array_like
 			Array of floats consisting of the cost function
 			over number of iterations
