@@ -24,10 +24,10 @@ class LinearRegression:
         y: array_like, shape = [n_samples, ]
 
         Returns
-		____________
-		self.cost_: array_like
-			Array of floats consisting of the cost function
-			over number of iterations
+        ____________
+        self.cost_: array_like
+            Array of floats consisting of the cost function over
+            number of iterations
 
         Examples
         ____________
