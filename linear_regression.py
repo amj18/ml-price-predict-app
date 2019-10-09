@@ -64,12 +64,12 @@ class LinearRegression:
         Params
         ____________
         X: array_like, shape = [n_samples, n_features]
-			Input features for model
+            Input features for model
 
         Returns
         ____________
         y_predicted: array_like, shape = [n_samples, ]
-			Predicted values of Linear Regression model
+            Predicted values of Linear Regression model
 
         Examples
         ____________
