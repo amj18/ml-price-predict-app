@@ -22,11 +22,12 @@ class LinearRegression:
         ____________
         X: array_like, shape = [n_samples, n_features]
         y: array_like, shape = [n_samples, ]
-
-        Returns
-        ____________
-        self: Returns a reference to the instance of LinearRegression
-        object and allows for method cascading
+		
+		Returns
+		____________
+		self.cost_: array_like
+			Array of floats consisting of the cost function
+			over number of iterations
 
         Examples
         ____________
@@ -55,7 +56,7 @@ class LinearRegression:
             cost_ = (1/n_samples) * \
                     np.sum([val**2 for val in (y_predicted - y)])
             self.cost_.append(cost_)
-        return self
+        return self.cost_
 
 
     def predict(self, X):
@@ -63,10 +64,12 @@ class LinearRegression:
         Params
         ____________
         X: array_like, shape = [n_samples, n_features]
+			Input features for model
 
         Returns
         ____________
         y_predicted: array_like, shape = [n_samples, ]
+			Predicted values of Linear Regression model
 
         Examples
         ____________
