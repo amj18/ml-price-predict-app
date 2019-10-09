@@ -62,6 +62,27 @@ def normalize_features(X):
 	return x_normed
 
 
+# Train val test from scratch
+def train_test_split(dummy):
+    pass
+
+
+# k-fold cross validation from scratch
+def k_fold_cross_val(dummy):
+    pass
+
+
+# Regularisation from scratch
+def regularization(dummy, regu="l1"):
+    pass
+
+
+# PCA from scratch
+def get_principal_components(dummy):
+    pass
+
+
+
 if __name__ == "__main__":
     data = import_data(filepath, 20000)
     headers = data.keys()
@@ -117,7 +138,7 @@ if __name__ == "__main__":
 
     ax.plot(np.arange(len(costs)), costs)
     ax.set_xlabel("Iterations")
-    ax.set_ylabel("MSE")
+    ax.set_ylabel("Sum of squared errors")
 
     print(features)
     pos = np.arange(len(weights))
