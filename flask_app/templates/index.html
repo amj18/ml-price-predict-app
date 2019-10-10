@@ -1,9 +1,8 @@
 <h1>Recipe CRUD app using Flask</h1>
-<form method="POST" action="">
-    <h2>Add recipe</h2>
+<form method="POST" action="{{url_for('user_form')}}">
     Recipe Name
     <br>
-    <input type="text" name="recipe_name" size="50"/>
+    <input type="text" name="recipe_name" id="recipe_name" size="50"/>
     <br>
     Recipe info
     <br>
@@ -14,18 +13,19 @@
     Recipe ingredients
     <br>
     <textarea rows="3" cols="50" name="recipe_ing" id="recipe_ing"
-              style="font-family:sans-serif;font-size:1.2em;"></textarea><br>
+              style="font-family:sans-serif;font-size:1.2em;"></textarea>
     <br>
-    <input type="submit">
+    <input type="submit" name="submit_button" value="Create New Recipe">
+    <input type="submit" name="submit_button" value="Update Recipe">
+    <input type="submit" name="submit_button" value="Delete Recipe">
 </form>
 
-<form>
+<form method="POST" action="{{url_for('search_recipe_by_ingredient')}}">
     <h2>Search recipe</h2>
     Search recipe by ingredient(s) <br>
     <br>
     <textarea rows="3" cols="50" name="recipe_ing_search" id="recipe_ing_search"
-              style="font-family:sans-serif;font-size:1.2em;"></textarea><br>
+              style="font-family:sans-serif;font-size:1.2em;"></textarea>
     <br>
-    <input type="submit",  value="Search">
-</form>
+    <input type="submit"  name="submit_button" value="Search">
 </form>
