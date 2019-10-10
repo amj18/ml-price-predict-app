@@ -1,0 +1,17 @@
+<table border = 1>
+    {% for recipe in form_details %}
+        <th>id</th>
+        <th>Recipe Name</th>
+        <th>Recipe Info</th>
+        <th>Recipe Ingredients</th>
+        <th>Date added</th>
+    <tr>
+        <td>{{recipe[0]}}</td>
+        <td>{{recipe[1]}}</td>
+        <td>{{recipe[2]}}</td>
+        <td>{{recipe[3]}}</td>
+        <td>{{recipe[4]}}</td>
+    </tr>
+</table>
+{% endfor %}
+</table>
