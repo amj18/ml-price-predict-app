@@ -52,5 +52,6 @@ Current functionality
 * Allows user to create, update, delete and search for recipes based on recipe name and ingredients
 
 Potential improvements
+* Prevent empty records from being entered into the database
 * Include user authentication so that only particular users or admin can access all recipes at the /recipes endpoint
 * Currently vulnerable to SQL injection hence that could be improved on
