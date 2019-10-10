@@ -9,11 +9,13 @@ ml-price-predict-app
 |   |-- avocado.csv
 |
 |-- flask_app/
-|   |-- sql_code
+|   |-- sql_code/
 |      |-- create_table.sql
-|   |-- templates
+|   |-- templates/
 |      |-- index.html
 |      |-- recipes.html
+|   |-- screenshots/
+|      |-- flask_gui.png
 |   |-- app.py
 |   |-- db.yaml
 |
@@ -55,3 +57,5 @@ Potential improvements
 * Prevent empty records from being entered into the database
 * Include user authentication so that only particular users or admin can access all recipes at the /recipes endpoint
 * Currently vulnerable to SQL injection hence that could be improved on
+
+![Flask Recipe App](https://github.com/amj18/ml-price-predict-app/blob/master/flask_app/screenshots/flask_gui.PNG)
