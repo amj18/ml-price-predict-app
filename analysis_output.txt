@@ -1,0 +1,41 @@
+# CONSOLE OUTPUT
+
+### CHECKING FOR MISSING VALUES AND ZEROES ###
+Date Failed
+AveragePrice 0 0
+Total Volume 0 0
+4046 0 242
+4225 0 61
+4770 0 5497
+Total Bags 0 15
+Small Bags 0 159
+Large Bags 0 2370
+XLarge Bags 0 12048
+type Failed
+year 0 0
+region Failed
+### END ###
+
+### DIMENSION CHECK ###
+(18249, 7) (18249,) (14567, 7) (14567,) (3682, 7) (3682,) (7,)
+### END ###
+
+### Mean absolute error / mean absolute deviation
+          of training set ###
+0.31583024095081486
+
+### Mean absolute error / mean absolute deviation
+          of test set ###
+0.3218642349336977
+
+P-values for the features using bootstrapping
+['Total Volume', '4046', '4225', '4770', 'Total Bags', 'Small Bags', 'Large Bags']
+[-0.01407983 -0.0382602   0.00170997 -0.02284286  0.00016981  0.00345812
+ -0.01168428] [0.0008581913219273088, 0.001995765320812006, 0.001646885430643965, 0.003952707524498428, 0.0022267959628775877, 0.002976738739518879, 0.002580104157231408]
+1.721010914653573e-60 6.504163859038519e-82 1.1495632784172738 7.512714074082045e-09 1.4696076830381923 1.1226759264649329 5.937373697742654e-06
+
+# Comments
+# The feature: Total Volume, 4046, 4770 and Large Bags "appear" to be statistically significant in predicting the price of avocadoes
+# due to the zero p-values
+
+### Total runtime = 57.92 s. ###
