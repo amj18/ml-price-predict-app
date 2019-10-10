@@ -17,6 +17,11 @@ ml-price-predict-app
 |   |-- app.py
 |   |-- db.yaml
 |
+|-- plots/
+|   |-- feature_betas.png
+|   |-- histogram_pred_y_test.png
+|   |-- regression_gradient_descent_mse.png
+|
 |-- README.md
 |-- analysis_output.txt
 |-- .gitignore
