@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request
 from flask_mysqldb import MySQL
 import yaml
 
@@ -21,6 +21,9 @@ def index():
 
 @app.route('/output', methods=['POST'])
 def user_form():
+    """
+    Allows user to create, update and delete recipes
+    """
     if request.method == 'POST':
         form_details = request.form
         recipe_name = form_details['recipe_name']
@@ -30,15 +33,15 @@ def user_form():
         if request.form['submit_button'] == 'Create New Recipe':
             cur.execute(
                 """
-                INSERT INTO 
-                recipes(recipe_name, recipe_info, recipe_ingredients) 
+                INSERT INTO
+                recipes(recipe_name, recipe_info, recipe_ingredients)
                 VALUES(%s, %s, %s);
                 """, (recipe_name,
                       recipe_info,
                       recipe_ingredients))
             results = cur.execute(
                 """
-                SELECT * FROM recipes 
+                SELECT * FROM recipes
                 ORDER BY date_created DESC
                 LIMIT 1;
                 """)
@@ -57,14 +60,14 @@ def user_form():
                 cur.execute(
                     """
                     UPDATE recipes
-                    SET recipe_info=%s, recipe_ingredients=%s 
+                    SET recipe_info=%s, recipe_ingredients=%s
                     WHERE recipe_name=%s;
                     """, (recipe_info,
                           recipe_ingredients,
                           recipe_name))
                 cur.execute(
                     """
-                    SELECT * FROM recipes 
+                    SELECT * FROM recipes
                     ORDER BY date_created DESC
                     LIMIT 1;
                     """)
@@ -74,7 +77,7 @@ def user_form():
         elif request.form['submit_button'] == 'Delete Recipe':
             rows_deleted = cur.execute(
                                     """
-                                    DELETE FROM recipes 
+                                    DELETE FROM recipes
                                     WHERE recipe_name=%s;
                                     """, (recipe_name,))
             mysql.connection.commit()
@@ -87,6 +90,9 @@ def user_form():
 # Perhaps create a login here so only admin can view this?
 @app.route('/recipes', methods=['GET'])
 def recipes():
+    """
+    Allows user to view all recipes in the database.
+    """
     cur = mysql.connection.cursor()
     results = cur.execute("SELECT * FROM recipes")
     if results > 0:
@@ -99,6 +105,9 @@ def recipes():
 
 @app.route('/recipes', methods=['POST'])
 def search_recipe_by_ingredient():
+    """
+    Allows user to search for a recipe by ingredient.
+    """
     form_details = request.form
     search_ingredients = form_details['recipe_ing_search']
     print(search_ingredients)
@@ -107,11 +116,12 @@ def search_recipe_by_ingredient():
         results = cur.execute(
             """
             SELECT * FROM recipes
-            WHERE recipe_ingredients LIKE  %s 
+            WHERE recipe_ingredients LIKE  %s
             """, ("%{}%".format(search_ingredients),))
         if results > 0:
             form_details = cur.fetchall()
-            return render_template('recipes.html', form_details=form_details), 200
+            return render_template('recipes.html',
+                                   form_details=form_details), 200
         else:
             return "No entries in database!", 204
         cur.close()

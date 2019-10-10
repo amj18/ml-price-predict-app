@@ -37,11 +37,14 @@ class LinearRegression:
         >>> getWeights = lr.weights_
         >>> getBias = lr.bias_
         """
+        # Sanity check because of problems with tuples with current train
+        # test split function
+        X = np.array(X)
+        y = np.array(y)
         n_samples, n_features = X.shape
         self.weights_ = np.zeros(n_features)
         self.bias_ = 0
         self.cost_ = []
-        print(X.shape, self.weights_.shape, self.weights_.shape)
 
         # Implement Gradient descent minimisation
         for i in range(self.n_iters):
@@ -53,11 +56,10 @@ class LinearRegression:
             self.weights_ -= self.learning_rate * dw
             self.bias_ -= self.learning_rate * db
 
-            cost_ = (1/n_samples) * \
+            cost_ = (1/n_samples) *\
                     np.sum([val**2 for val in (y_predicted - y)])
             self.cost_.append(cost_)
         return self.cost_
-
 
     def predict(self, X):
         """
