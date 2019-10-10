@@ -17,6 +17,8 @@ ml-price-predict-app
 |   |-- app.py
 |   |-- db.yaml
 |
+|-- README.md
+|-- analysis_output.txt
 |-- .gitignore
 |-- linear_regression.py
 |-- price_prediction_model.py
