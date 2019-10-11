@@ -47,6 +47,7 @@ Potential improvements
 * Principal Component Analysis for dimensionality reduction, although since there weren't many features here, it can be ignored.
 * k-fold cross validation to get an average MSE
 * Function for selecting the best hyperparameters for the Linear Regression model and minimise MSE
+* Unit tests have not been implemented, hence that could be looked into as well.
 
 ### Comments about the Flask CRUD app for recipes
 Current functionality
